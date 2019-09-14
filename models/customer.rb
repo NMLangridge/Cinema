@@ -1,4 +1,5 @@
 require_relative("../db/sql_runner.rb")
+require_relative("../models/film.rb")
 
 class Customer
 
@@ -57,6 +58,10 @@ class Customer
     tickets = SqlRunner.run(sql, values)
     return tickets.map{ |ticket| Ticket.new(ticket) }
   end
+
+  # def buy_tickets()
+  #   return customer.funds -= film.price
+  # end
 
   def count_tickets()
     return customer.tickets.count
